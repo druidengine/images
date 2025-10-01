@@ -8,6 +8,11 @@ on:
 jobs:
   docker:
     runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      attestations: write
+      id-token: write
 
     steps:
     - name: Checkout repository
@@ -24,7 +29,7 @@ jobs:
       id: meta
       uses: docker/metadata-action@v5
       with:
-        images: ghcr.io/${{ github.repository }}
+        images: ghcr.io/${{ github.repository }}/ubuntu-dev
 
     - name: Build and push Docker image
       uses: docker/build-push-action@v5
@@ -38,6 +43,6 @@ jobs:
     - name: Generate artifact attestation
       uses: actions/attest-build-provenance@v3
       with:
-        subject-name: ghcr.io/${{ github.repository }}
+        subject-name: ghcr.io/${{ github.repository }}/ubuntu-dev
         subject-digest: ${{ steps.push.outputs.digest }}
         push-to-registry: true
