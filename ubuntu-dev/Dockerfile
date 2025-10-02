@@ -16,3 +16,6 @@ RUN apt update -y && \
     update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-22 200 && \
     update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 200 && \
     update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-22 200
+
+# GLFW Dependencies
+RUN apt install -y libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config
