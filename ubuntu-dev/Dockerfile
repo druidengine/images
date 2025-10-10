@@ -2,7 +2,7 @@ FROM ubuntu:25.04
 
 RUN apt update -y && \
     apt upgrade -y && \
-    apt install -y wget software-properties-common gnupg lsb-release \
+    apt install -y wget software-properties-common gnupg lsb-release mono-complete \
         curl tar git zip unzip make autoconf libtool ninja-build cmake && \
     wget https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
