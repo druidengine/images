@@ -18,5 +18,8 @@ RUN apt update -y && \
     update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-22 200
 
 # Qt dependencies
-RUN apt install -y 'libxcb*-dev' libx11-dev libxext-dev libxfixes-dev libgl1-mesa-dev libglu1-mesa-dev libegl1-mesa-dev \
-    libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxinerama-dev libfontconfig1-dev libfreetype6-dev
+RUN apt install -y '^libxcb.*-dev' libfontconfig1-dev libfreetype6-dev libx11-dev libxext-dev libxfixes-dev \
+    libgl1-mesa-dev libglu1-mesa-dev libegl1-mesa-dev libxrender-dev libxi-dev libxcb1-dev libxcb-glx0-dev \
+    libxcb-keysyms1-dev libxcb-image0-dev libxcb-shm0-dev libx11-xcb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+    libxcb-icccm4-dev libxcb-sync0-dev libxcb-xfixes0-dev libxcb-shape0-dev libxcb-randr0-dev \
+    libxcb-render-util0-dev libxinerama-dev
