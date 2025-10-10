@@ -17,6 +17,6 @@ RUN apt update -y && \
     update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 200 && \
     update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-22 200
 
-# raylib dependencies
-RUN apt install -y libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config \
-    libgl1-mesa-dev libx11-dev libxrandr-dev
+# Qt dependencies
+RUN apt install -y 'libxcb*-dev' libx11-dev libxext-dev libxfixes-dev libgl1-mesa-dev libglu1-mesa-dev libegl1-mesa-dev \
+    libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev libxinerama-dev libfontconfig1-dev libfreetype6-dev
