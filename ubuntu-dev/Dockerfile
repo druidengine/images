@@ -16,7 +16,9 @@ RUN apt install -y build-essential flex bison libgmp-dev libmpc-dev libmpfr-dev 
     make -j $(nproc --all) && \
     make install && \
     update-alternatives --install /usr/bin/gcc gcc /usr/local/gcc-15.2/bin/gcc 152 && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/local/gcc-15.2/bin/g++ 152
+    update-alternatives --install /usr/bin/g++ g++ /usr/local/gcc-15.2/bin/g++ 152 && \
+    cd ../.. && \
+    rm -rf gcc-15.2.0*
 
 # Install clang-22
 RUN wget https://apt.llvm.org/llvm.sh && \
