@@ -25,12 +25,14 @@ RUN wget https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 22 && \
     apt update -y && \
-    apt install -y clang-22 clang-tidy-22 clang-format-22 && \
+    apt install -y llvm-22-tools clang-22 clang-tidy-22 clang-format-22 && \
     update-alternatives --install /usr/bin/clang clang /usr/bin/clang-22 200 && \
     update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-22 200 && \
     update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-22 200 && \
     update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 200 && \
-    update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-22 200
+    update-alternatives --install /usr/bin/run-clang-tidy run-clang-tidy /usr/bin/run-clang-tidy-22 200 && \
+    update-alternatives --install /usr/bin/llvm-profdata llvm-profdata /usr/bin/llvm-profdata-22 200 && \
+    update-alternatives --install /usr/bin/llvm-cov llvm-cov /usr/bin/llvm-cov-22 200
 
 # Install Raylib dependencies
 RUN apt install -y libxinerama-dev libxcursor-dev xorg-dev libglu1-mesa-dev pkg-config libgl1-mesa-dev libx11-dev libxrandr-dev
