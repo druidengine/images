@@ -8,7 +8,7 @@ RUN apt update -y && \
 
 # Install gcc
 RUN apt install -y build-essential g++-15 && \
-    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-15 10
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-15 10 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-15 10
 
 # Install clang-22
