@@ -1,12 +1,15 @@
 FROM ubuntu:25.10
 
+# Install tools
 RUN apt update -y && \
     apt upgrade -y && \
     apt install -y wget software-properties-common gnupg lsb-release mono-complete \
-        curl tar git zip unzip make autoconf libtool ninja-build cmake
+        curl tar git zip unzip make autoconf libtool ninja-build cmake doxygen
 
-# Install gcc 15.2
-RUN apt install -y build-essential flex bison libgmp-dev libmpc-dev libmpfr-dev texinfo libisl-dev g++-15
+# Install gcc
+RUN apt install -y build-essential g++-15 && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-15 10
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-15 10
 
 # Install clang-22
 RUN wget https://apt.llvm.org/llvm.sh && \
