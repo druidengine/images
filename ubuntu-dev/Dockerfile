@@ -6,19 +6,7 @@ RUN apt update -y && \
         curl tar git zip unzip make autoconf libtool ninja-build cmake
 
 # Install gcc 15.2
-RUN apt install -y build-essential flex bison libgmp-dev libmpc-dev libmpfr-dev texinfo libisl-dev && \
-    wget https://ftp.gnu.org/gnu/gcc/gcc-15.2.0/gcc-15.2.0.tar.xz && \
-    tar -xf gcc-15.2.0.tar.xz && \
-    cd gcc-15.2.0 && \
-    mkdir build && \
-    cd build && \
-    ../configure --prefix=/usr/local/gcc-15.2 --enable-languages=c,c++ --disable-multilib && \
-    make -j $(nproc --all) && \
-    make install && \
-    update-alternatives --install /usr/bin/gcc gcc /usr/local/gcc-15.2/bin/gcc 152 && \
-    update-alternatives --install /usr/bin/g++ g++ /usr/local/gcc-15.2/bin/g++ 152 && \
-    cd ../.. && \
-    rm -rf gcc-15.2.0*
+RUN apt install -y build-essential flex bison libgmp-dev libmpc-dev libmpfr-dev texinfo libisl-dev g++-15
 
 # Install clang-22
 RUN wget https://apt.llvm.org/llvm.sh && \
